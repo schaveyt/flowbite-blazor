@@ -1,0 +1,23 @@
+{
+    "cSpell.words": [
+        "BLAZOR",
+        "evenodd",
+        "Flowbite",
+        "onclick"
+    ],
+    "editor.rulers": [
+        80,
+        140
+    ],
+    "markdown.extension.orderedList.autoRenumber": false,
+    "markdown.extension.orderedList.marker": "one",
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.wordWrap": "off"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": "explicit"
+    },
+}

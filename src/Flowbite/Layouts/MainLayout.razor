@@ -1,0 +1,29 @@
+@inherits LayoutComponentBase
+
+<div class="h-screen flex flex-col antialiased justify-between bg-gray-50 dark:bg-gray-900">
+
+    <Header /> 
+
+    <div class="flex flex-col justify-between flex-auto overflow-y-auto">
+
+        <section class="flex-auto flex overflow-y-auto">
+
+            @* <Sidebar /> *@
+
+            <main class="p-4 bg-gray-50 dark:bg-gray-900 overflow-auto w-full">
+                @Body
+            </main>
+
+        </section>
+
+        @* <Footer/> *@
+
+    </div>
+
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>

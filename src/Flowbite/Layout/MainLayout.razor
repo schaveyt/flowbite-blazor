@@ -1,0 +1,57 @@
+@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+
+<div class="antialiased bg-gray-50 dark:bg-gray-900 h-screen flex flex-col">
+
+    <Header ShowResponsiveMenu=@true />
+
+    <div class="flex flex-col justify-between flex-auto overflow-y-auto">
+  
+        <section class="flex-auto flex overflow-y-auto">
+  
+            <aside id="drawer-navigation" 
+                   class="h-full fixed lg:relative overflow-auto w-96 z-40 transition-transform left-0 top-0 -translate-x-full bg-white border-r border-gray-300 lg:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+                   aria-label="sidenav" >
+
+                <SectionOutlet SectionName="sidebar-content-outlet"/>
+
+            </aside>
+  
+            <main class="p-4 bg-gray-50 dark:bg-gray-900 overflow-auto w-full">
+                @Body
+            </main>
+  
+        </section>
+  
+        <Footer/>
+  
+    </div>
+
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+@code {
+    protected override async void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (JSRuntime is not null)
+            {
+                try
+                {
+                    await JSRuntime.InvokeVoidAsync("window.initializeFlowbite");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(
+                        $"{GetType().FullName}::OnAfterRender encountered JSRuntime Exception: {e.Message}");
+                }
+            }
+        }
+    }
+}

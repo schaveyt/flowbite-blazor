@@ -1,0 +1,55 @@
+<nav class="py-5 px-3">
+
+    @{ 
+        var nav_item_completed_classes = "flex flex-wrap items-center py-2 font-bold text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"; 
+        var nav_item_classes = "flex flex-wrap items-center py-2 font-medium text-gray-300 hover:text-gray-900 dark:text-gray-600 dark:hover:text-white"; 
+        var new_badge_classes = "ml-2 inline-flex h-[1.1rem] items-center rounded border border-cyan-100 bg-cyan-100 px-1.5 text-[10px] font-semibold uppercase text-cyan-800 dark:border-cyan-400 dark:bg-gray-700 dark:text-cyan-400";
+    }
+    <ul>
+        <li class="mt-8">
+            <h5 class="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-900 lg:text-xs dark:text-white">
+                component demos</h5>
+            <ul class="py-1">
+                <li><a class=@nav_item_classes href="/demo/components/accordion">Accordion</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/alert">Alert</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/avatar">Avatar</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/badge">Badge</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/banner">Banner</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/breadcrumb">Breadcrumb</a></li>
+                <li><a class=@nav_item_completed_classes href="/demo/components/button">Button</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/button-group">Button group</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/card">Card</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/carousel">Carousel</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/clipboard">
+                    <span class="flex items-center gap-2">Clipboard<span class=@new_badge_classes>new</span></span></a>
+                </li>
+                <li><a class=@nav_item_classes href="/demo/components/datepicker">Datepicker</a></li>
+                @* <li><a class=@nav_item_classes href="/demo/components/drawer">
+                    <span class="flex items-center gap-2">Drawer<span class=@new_badge_classes>new</span></span></a>
+                </li> *@
+                <li><a class=@nav_item_classes href="/demo/components/dropdown">Dropdown</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/footer">Footer</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/forms">Forms</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/kbd">KBD</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/list-group">List group</a></li>
+                @* <li><a class=@nav_item_classes href="/demo/components/mega-menu">
+                    <span class="flex items-center gap-2">Mega menu<span class=@new_badge_classes>new</span></span></a>
+                </li> *@
+                <li><a class=@nav_item_classes href="/demo/components/modal">Modal</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/navbar">Navbar</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/pagination">Pagination</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/popover">Popover</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/progress">Progress bar</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/rating">Rating</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/sidebar">Sidebar</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/spinner">Spinner</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/table">Table</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/tabs">Tabs</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/timeline">Timeline</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/toast">Toast</a></li>
+                <li><a class=@nav_item_classes href="/demo/components/tooltip">Tooltip</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</nav>

@@ -1,0 +1,85 @@
+@page "/demo/components/button"
+
+@layout MainLayout
+@rendermode RenderMode.InteractiveServer
+
+<PageTitle>Button Component - Flowbite Blazor</PageTitle>
+
+<div class="p-6 space-y-6">
+    <h1 class="text-2xl font-bold mb-4">Button Component Demos</h1>
+
+    <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Button Styles</h2>
+        <div class="flex flex-wrap gap-4">
+            <Button>Default Button</Button>
+            <Button Style="ButtonStyle.Outline">Outline Button</Button>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Button Colors</h2>
+        <div class="flex flex-wrap gap-4">
+            <Button>Default Blue</Button>
+            <Button Color="ButtonColor.Alternative">Alternative</Button>
+            <Button Color="ButtonColor.Dark">Dark</Button>
+            <Button Color="ButtonColor.Light">Light</Button>
+            <Button Color="ButtonColor.Green">Green</Button>
+            <Button Color="ButtonColor.Red">Red</Button>
+            <Button Color="ButtonColor.Yellow">Yellow</Button>
+            <Button Color="ButtonColor.Purple">Purple</Button>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Outline Button Colors</h2>
+        <div class="flex flex-wrap gap-4">
+            <Button Style="ButtonStyle.Outline">Default Blue</Button>
+            <Button Style="ButtonStyle.Outline" Color="ButtonColor.Alternative">Alternative</Button>
+            <Button Style="ButtonStyle.Outline" Color="ButtonColor.Dark">Dark</Button>
+            <Button Style="ButtonStyle.Outline" Color="ButtonColor.Light">Light</Button>
+            <Button Style="ButtonStyle.Outline" Color="ButtonColor.Green">Green</Button>
+            <Button Style="ButtonStyle.Outline" Color="ButtonColor.Red">Red</Button>
+            <Button Style="ButtonStyle.Outline" Color="ButtonColor.Yellow">Yellow</Button>
+            <Button Style="ButtonStyle.Outline" Color="ButtonColor.Purple">Purple</Button>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Button Sizes</h2>
+        <div class="flex flex-wrap items-center gap-4">
+            <Button Size="ButtonSize.Small">Small Button</Button>
+            <Button Size="ButtonSize.Medium">Medium Button</Button>
+            <Button Size="ButtonSize.Large">Large Button</Button>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Button States</h2>
+        <div class="flex flex-wrap gap-4">
+            <Button Disabled="true">Disabled Button</Button>
+            <Button Loading="true">Loading Button</Button>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-semibold mb-4">Event Handling</h2>
+        <div class="flex flex-wrap gap-4">
+
+            @* This is button uses render mode of InteractiveServer to handle click event. *@
+            <Button OnClick="HandleButtonClick">Click Me</Button>
+            @if (_lastClickTime.HasValue)
+            {
+                <p>Last clicked: @_lastClickTime.Value.ToString("HH:mm:ss")</p>
+            }
+        </div>
+    </section>
+</div>
+
+@code {
+    private DateTime? _lastClickTime;
+
+    private void HandleButtonClick()
+    {
+        _lastClickTime = DateTime.Now;
+    }
+}

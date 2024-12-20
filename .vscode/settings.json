@@ -3,7 +3,8 @@
         "BLAZOR",
         "evenodd",
         "Flowbite",
-        "onclick"
+        "onclick",
+        "rendermode"
     ],
     "editor.rulers": [
         80,

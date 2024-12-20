@@ -1,0 +1,117 @@
+# Cline Rules Configuration File
+# This file configures behavior and capabilities for the Cline AI assistant
+
+# SYSTEM RULES
+# Override default system rules and behaviors
+system_rules:
+  # Change working directory (default is current directory)
+  working_directory: "c:/Users/tschavey/projects/flowbite-blazor"
+  
+  # Override default shell (default is system shell)
+  shell: "powershell"
+  
+  # Customize tool usage requirements
+  require_tool_approval: true    # Require approval for each tool use
+  require_command_approval: true # Require approval for execute_command
+
+# CUSTOM INSTRUCTIONS 
+# Add your own instructions that Cline should follow
+custom_instructions: |
+  When writing Blazor components:
+  1. Use 4 spaces for indentation
+  2. Follow C# naming conventions:
+     - PascalCase for public members and types
+     - _camelCase for private fields
+     - Parameters must be public properties
+  3. Component organization:
+     - One component per file
+     - Place in appropriate feature folder under Components/
+     - Use partial classes for complex components
+  4. Documentation:
+     - XML comments for public APIs
+     - Include parameter descriptions
+     - Document event callbacks
+  
+  When writing Razor syntax:
+  1. Prefer c# code in .cs file rather than .razor file
+  2. Prefer functions over lambda expressions for event handlers
+  3. Use proper HTML structure and semantics
+  4. Include accessibility attributes
+  
+  When implementing TailwindCSS:
+  1. Follow Flowbite class naming conventions
+  2. Maintain dark mode support using dark: prefix
+  3. Use CSS isolation when needed (@css scope)
+  4. Keep responsive design classes organized
+
+  When formatting Markdown:
+  1. Surround code blocks with blank lines
+  2. Use 4 spaces for list indentation
+  3. Add blank lines around headings
+
+# TOOL ACCESS
+# Control which tools Cline can use
+allowed_tools:
+  - execute_command    # For .NET CLI commands and npm
+  - read_file         # For code analysis
+  - write_to_file     # For component creation
+  - replace_in_file   # For code modifications
+  - search_files      # For finding component usage
+  - list_files        # For project structure
+  - browser_action    # For component testing
+  - list_code_definition_names  # For analyzing component APIs
+
+# MCP SERVERS
+# Configure Model Context Protocol servers
+mcp_servers:
+  filesystem:
+    command: "node"
+    args: ["C:/Users/tschavey/Documents/Cline/MCP/filesystem-server/build/index.js"]
+
+# FILE PATHS
+# Define important project paths
+paths:
+  component_lib: "./src/Flowbite/src/Flowbite"
+  demo_app: "./src/AppServer"
+  docs: "./docs"
+  flowbite_react: "C:/Users/tschavey/projects/flowbite-react"
+
+# PROJECT_PLAN
+# Define project scope, phases, and guidelines
+project_plan:
+  reference_doc: "./docs/project-plan.md"  # Source of truth
+  implementation_order:
+    core:
+      - Button
+      - Alert
+      - Card
+      - Modal
+    form:
+      - Input
+      - Select
+      - Checkbox
+    navigation:
+      - Navbar
+      - Sidebar
+      - Tabs
+    advanced:
+      - Datepicker
+      - Dropdown
+      - Table
+  phases:
+    - name: "Setup"
+      status: "in_progress"
+      tasks:
+        - "[x] Configure .clinerules"
+        - "[x] Set up TailwindCSS"
+        - "Create workflow"
+        - "Establish testing"
+    - name: "Component Migration"
+      status: "pending"
+      current_component: null
+    - name: "Documentation"
+      status: "pending"
+    - name: "Testing"
+      status: "pending"
+    - name: "Optimization"
+      status: "pending"

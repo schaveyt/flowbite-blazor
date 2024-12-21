@@ -1,0 +1,139 @@
+@page "/demo/components/alert"
+@using Flowbite.Components
+@using Flowbite.Components.Icons
+
+@code {
+    private InfoIcon _infoIcon = new();
+    private EyeIcon _eyeIcon = new();
+}
+
+<div class="p-4 space-y-4">
+    <h1 class="text-2xl font-bold mb-8">Alert Examples</h1>
+
+    <div class="space-y-8">
+        <!-- Basic Alerts -->
+        <div class="flex flex-col space-y-4">
+            <h2 class="text-xl font-semibold mb-4">Basic Alerts</h2>
+            <Alert Color="AlertColor.Info"
+                   TextEmphasis="Info alert!"
+                   Text="Change a few things up and try submitting again." />
+            
+            <Alert Color="AlertColor.Success" 
+                   TextEmphasis="Success alert!"
+                   Text="Change a few things up and try submitting again." />
+            
+            <Alert Color="AlertColor.Warning"
+                   TextEmphasis="Warning alert!"
+                   Text="Change a few things up and try submitting again." />
+            
+            <Alert Color="AlertColor.Failure"
+                   TextEmphasis="Failure alert!"
+                   Text="Change a few things up and try submitting again." />
+        </div>
+
+        <!-- Dismissible Alerts -->
+        <div class="flex flex-col space-y-4">
+            <h2 class="text-xl font-semibold mb-4">Dismissible Alerts</h2>
+            <Alert Color="AlertColor.Success"
+                   TextEmphasis="Success alert!"
+                   Text="Change a few things up and try submitting again."
+                   OnDismiss="@(() => { })" />
+            
+            <Alert Color="AlertColor.Failure"
+                   TextEmphasis="Failure alert!"
+                   Text="Change a few things up and try submitting again."
+                   OnDismiss="@(() => { })" />
+        </div>
+
+        <!-- Border Accent Alerts -->
+        <div class="flex flex-col space-y-4">
+            <h2 class="text-xl font-semibold mb-4">Border Accent Alerts</h2>
+            <Alert Color="AlertColor.Warning"
+                   TextEmphasis="Warning alert!"
+                   Text="Change a few things up and try submitting again."
+                   WithBorderAccent="true" />
+            
+            <Alert Color="AlertColor.Success"
+                   TextEmphasis="Success alert!"
+                   Text="Change a few things up and try submitting again."
+                   WithBorderAccent="true" />
+        </div>
+
+        <!-- Additional Content -->
+        <div class="flex flex-col space-y-4">
+            <h2 class="text-xl font-semibold mb-4">Alerts with Additional Content</h2>
+            <!-- Example of complex content using CustomContent -->
+            <Alert Color="AlertColor.Info">
+                <CustomContent>
+                    <div class="flex items-center">
+                        <span class="font-medium">Complex alert with custom HTML!</span>
+                        <button type="button" class="ml-2 text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-xs px-3 py-1.5 inline-flex items-center dark:bg-cyan-800 dark:hover:bg-cyan-900">
+                            Inline Button
+                        </button>
+                    </div>
+                </CustomContent>
+                <AdditionalContent>
+                    <div class="mt-2 mb-1 text-sm text-cyan-700 dark:text-cyan-800">
+                        This example shows how CustomContent allows for more complex HTML structures in the main content area.
+                    </div>
+                </AdditionalContent>
+            </Alert>
+        </div>
+
+        <!-- Alerts with Icons -->
+        <div class="flex flex-col space-y-4">
+            <h2 class="text-xl font-semibold mb-4">Alerts with Icons</h2>
+            <Alert Color="AlertColor.Info"
+                   Icon="@_infoIcon"
+                   TextEmphasis="Info alert with icon!"
+                   Text="Change a few things up and try submitting again." />
+            
+            <Alert Color="AlertColor.Info"
+                   Icon="@_infoIcon"
+                   TextEmphasis="Dismissible info alert with icon!"
+                   Text="Change a few things up and try submitting again."
+                   OnDismiss="@(() => { })" />
+
+            <Alert Color="AlertColor.Info"
+                   Icon="@_infoIcon"
+                   TextEmphasis="Bordered info alert with icon!"
+                   Text="Change a few things up and try submitting again."
+                   WithBorderAccent="true">
+                <AdditionalContent>
+                    <div class="mt-2 mb-1 text-sm text-cyan-700 dark:text-cyan-800">
+                        More info about this info alert goes here. This example shows how icons work with additional content.
+                    </div>
+                </AdditionalContent>
+            </Alert>
+
+            @* Example with EyeIcon *@
+            <Alert Color="AlertColor.Warning"
+                   Icon="@_eyeIcon"
+                   TextEmphasis="Privacy alert!"
+                   Text="Your activity is now visible to others." />
+        </div>
+
+        <!-- Different Colors -->
+        <div class="flex flex-col space-y-4">
+            <h2 class="text-xl font-semibold mb-4">Different Colors</h2>
+            <Alert Color="AlertColor.Blue"
+                   TextEmphasis="Blue alert!"
+                   Text="Change a few things up and try submitting again." />
+            <Alert Color="AlertColor.Cyan"
+                   TextEmphasis="Cyan alert!"
+                   Text="Change a few things up and try submitting again." />
+            <Alert Color="AlertColor.Pink"
+                   TextEmphasis="Pink alert!"
+                   Text="Change a few things up and try submitting again." />
+            <Alert Color="AlertColor.Lime"
+                   TextEmphasis="Lime alert!"
+                   Text="Change a few things up and try submitting again." />
+            <Alert Color="AlertColor.Dark"
+                   TextEmphasis="Dark alert!"
+                   Text="Change a few things up and try submitting again." />
+            <Alert Color="AlertColor.Light"
+                   TextEmphasis="Light alert!"
+                   Text="Change a few things up and try submitting again." />
+        </div>
+    </div>
+</div>

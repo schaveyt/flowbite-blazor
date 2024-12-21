@@ -72,6 +72,7 @@ The demo page is used to test the component in isolation.
 
 - [x] Button
 - Alert
+- Icons
 - Card
 - Modal
 

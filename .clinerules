@@ -4,15 +4,17 @@
 # SYSTEM RULES
 # Override default system rules and behaviors
 system_rules:
-  # Change working directory (default is current directory)
-  working_directory: "c:/Users/tschavey/projects/flowbite-blazor"
   
   # Override default shell (default is system shell)
-  shell: "powershell"
+  shell: "powershell v5.1"
+  os: "Windows 11"
+  editor: "Visual Studio Code"
+
   
   # Customize tool usage requirements
-  require_tool_approval: true    # Require approval for each tool use
-  require_command_approval: true # Require approval for execute_command
+  recommended_mcp_servers:
+    - filesystem
+    - fetch
 
 # CUSTOM INSTRUCTIONS 
 # Add your own instructions that Cline should follow
@@ -49,24 +51,13 @@ custom_instructions: |
   2. Use 4 spaces for list indentation
   3. Add blank lines around headings
 
-# TOOL ACCESS
-# Control which tools Cline can use
-allowed_tools:
-  - execute_command    # For .NET CLI commands and npm
-  - read_file         # For code analysis
-  - write_to_file     # For component creation
-  - replace_in_file   # For code modifications
-  - search_files      # For finding component usage
-  - list_files        # For project structure
-  - browser_action    # For component testing
-  - list_code_definition_names  # For analyzing component APIs
-
-# MCP SERVERS
-# Configure Model Context Protocol servers
-mcp_servers:
-  filesystem:
-    command: "node"
-    args: ["C:/Users/tschavey/Documents/Cline/MCP/filesystem-server/build/index.js"]
+  When building the AppServer project:
+  1. Use this commands:
+    ```powershell
+    cd C:\Users\tschavey\projects\csharp_projects\flowbite-blazor-desktop\src\Flowbite\src\AppServer
+    npm run buildcss # this updates the ./wwwroot/css/app.min.css with the latest changes
+    dotnet watch
+    ```
 
 # FILE PATHS
 # Define important project paths
@@ -74,15 +65,18 @@ paths:
   component_lib: "./src/Flowbite/src/Flowbite"
   demo_app: "./src/AppServer"
   docs: "./docs"
-  flowbite_react: "C:/Users/tschavey/projects/flowbite-react"
+  flowbite_react_library: "C:/Users/tschavey/projects/javascript_projects/flowbite-react"
 
 # PROJECT_PLAN
 # Define project scope, phases, and guidelines
 project_plan:
-  reference_doc: "./docs/project-plan.md"  # Source of truth
+  reference_docs:
+    project_plan: "./docs/project-plan.md"  # Source of truth
+    flowbite_react_component_documentation: - "https://flowbite-react.com/docs/components/{{COMPONENT_NAME}}/
+
   implementation_order:
     core:
-      - Button
+      - Button [x]
       - Alert
       - Card
       - Modal
@@ -98,20 +92,4 @@ project_plan:
       - Datepicker
       - Dropdown
       - Table
-  phases:
-    - name: "Setup"
-      status: "in_progress"
-      tasks:
-        - "[x] Configure .clinerules"
-        - "[x] Set up TailwindCSS"
-        - "Create workflow"
-        - "Establish testing"
-    - name: "Component Migration"
-      status: "pending"
-      current_component: null
-    - name: "Documentation"
-      status: "pending"
-    - name: "Testing"
-      status: "pending"
-    - name: "Optimization"
-      status: "pending"
+  

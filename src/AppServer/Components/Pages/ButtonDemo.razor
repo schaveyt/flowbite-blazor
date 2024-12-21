@@ -1,23 +1,17 @@
 @page "/demo/components/button"
 @rendermode RenderMode.InteractiveServer
+@using Flowbite.Components
+@using Flowbite.Components.Icons
 
 <PageTitle>Button Component - Flowbite Blazor</PageTitle>
 
-<div class="p-6 space-y-6">
-    <h1 class="text-2xl font-bold mb-4">Button Component Demos</h1>
+<div class="p-6 space-y-8">
+    <h1 class="text-2xl font-bold mb-4">Button Component</h1>
 
-    <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-4">Button Styles</h2>
+    <section>
+        <h2 class="text-xl font-semibold mb-4">Default Buttons</h2>
         <div class="flex flex-wrap gap-4">
-            <Button>Default Button</Button>
-            <Button Style="ButtonStyle.Outline">Outline Button</Button>
-        </div>
-    </section>
-
-    <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-4">Button Colors</h2>
-        <div class="flex flex-wrap gap-4">
-            <Button>Default Blue</Button>
+            <Button>Default</Button>
             <Button Color="ButtonColor.Alternative">Alternative</Button>
             <Button Color="ButtonColor.Dark">Dark</Button>
             <Button Color="ButtonColor.Light">Light</Button>
@@ -28,10 +22,10 @@
         </div>
     </section>
 
-    <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-4">Outline Button Colors</h2>
+    <section>
+        <h2 class="text-xl font-semibold mb-4">Outline Buttons</h2>
         <div class="flex flex-wrap gap-4">
-            <Button Style="ButtonStyle.Outline">Default Blue</Button>
+            <Button Style="ButtonStyle.Outline">Default</Button>
             <Button Style="ButtonStyle.Outline" Color="ButtonColor.Alternative">Alternative</Button>
             <Button Style="ButtonStyle.Outline" Color="ButtonColor.Dark">Dark</Button>
             <Button Style="ButtonStyle.Outline" Color="ButtonColor.Light">Light</Button>
@@ -42,29 +36,66 @@
         </div>
     </section>
 
-    <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-4">Button Sizes</h2>
-        <div class="flex flex-wrap items-center gap-4">
-            <Button Size="ButtonSize.Small">Small Button</Button>
-            <Button Size="ButtonSize.Medium">Medium Button</Button>
-            <Button Size="ButtonSize.Large">Large Button</Button>
-        </div>
-    </section>
-
-    <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-4">Button States</h2>
+    <section>
+        <h2 class="text-xl font-semibold mb-4">Buttons with Icons</h2>
         <div class="flex flex-wrap gap-4">
-            <Button Disabled="true">Disabled Button</Button>
-            <Button Loading="true">Loading Button</Button>
+            <Button Icon="@(new InfoIcon())" Color="ButtonColor.Default">Info with icon</Button>
+            <Button Icon="@(new EyeIcon())" Color="ButtonColor.Yellow">View alert</Button>
+            <Button Icon="@(new InfoIcon())" Style="ButtonStyle.Outline">Outline with icon</Button>
+            <Button Icon="@(new InfoIcon())" Size="ButtonSize.Large">Large with icon</Button>
         </div>
     </section>
 
     <section>
-        <h2 class="text-xl font-semibold mb-4">Event Handling</h2>
-        <div class="flex flex-wrap gap-4">
+        <h2 class="text-xl font-semibold mb-4">Button Sizes</h2>
+        <div class="flex flex-wrap items-center gap-4">
+            <Button Size="ButtonSize.Small">Small</Button>
+            <Button Size="ButtonSize.Medium">Default</Button>
+            <Button Size="ButtonSize.Large">Large</Button>
+        </div>
+    </section>
 
-            @* This is button uses render mode of InteractiveServer to handle click event. *@
-            <Button OnClick="HandleButtonClick">Click Me</Button>
+    <section>
+        <h2 class="text-xl font-semibold mb-4">Pill Buttons</h2>
+        <div class="flex flex-wrap gap-4">
+            <Button class="rounded-full">Default pill</Button>
+            <Button Color="ButtonColor.Green" class="rounded-full">Success pill</Button>
+            <Button Style="ButtonStyle.Outline" class="rounded-full">Outline pill</Button>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-semibold mb-4">Block Buttons</h2>
+        <div class="flex flex-col gap-4">
+            <Button class="w-full">Full-width button</Button>
+            <Button Color="ButtonColor.Alternative" class="w-full">Full-width alternative</Button>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-semibold mb-4">Button States</h2>
+        <div class="flex flex-wrap gap-4">
+            <Button Disabled="true">Disabled</Button>
+            <Button Loading="true">Loading...</Button>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-semibold mb-4">Link Buttons</h2>
+        <div class="flex flex-wrap gap-4">
+            <Button OnClick="@(() => Console.WriteLine("Clicked!"))">
+                Button with click
+            </Button>
+            <Button Href="https://flowbite.com" Target="_blank">
+                Link button
+            </Button>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-semibold mb-4">Interactive Example</h2>
+        <div class="flex flex-wrap gap-4 items-center">
+            <Button OnClick="HandleButtonClick" Icon="@(new InfoIcon())">Click Me</Button>
             @if (_lastClickTime.HasValue)
             {
                 <p>Last clicked: @_lastClickTime.Value.ToString("HH:mm:ss")</p>

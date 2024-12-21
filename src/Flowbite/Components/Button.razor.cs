@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using System.Collections.Generic;
+using Flowbite.Components.Base;
+using Microsoft.AspNetCore.Components.Routing;
 
 namespace Flowbite.Components
 {
@@ -9,11 +11,25 @@ namespace Flowbite.Components
     /// </summary>
     public partial class Button
     {
-        /// <summary>
-        /// The type of button (e.g., "button", "submit", "reset").
-        /// </summary>
-        [Parameter]
-        public string Type { get; set; } = "button";
+    /// <summary>
+    /// The type of button (e.g., "button", "submit", "reset").
+    /// Only used when not rendering as a link.
+    /// </summary>
+    [Parameter]
+    public string Type { get; set; } = "button";
+
+    /// <summary>
+    /// The URL that the button links to. If provided, the button will render as an anchor tag.
+    /// </summary>
+    [Parameter]
+    public string? Href { get; set; }
+
+    /// <summary>
+    /// The target attribute for the link (e.g., "_blank", "_self").
+    /// Only used when Href is provided.
+    /// </summary>
+    [Parameter]
+    public string? Target { get; set; }
 
         /// <summary>
         /// Determines if the button is disabled.
@@ -45,17 +61,29 @@ namespace Flowbite.Components
         [Parameter]
         public ButtonColor Color { get; set; } = ButtonColor.Default;
 
-        /// <summary>
-        /// Child content of the button.
-        /// </summary>
-        [Parameter]
-        public RenderFragment? ChildContent { get; set; }
+    /// <summary>
+    /// The icon to display in the button.
+    /// </summary>
+    [Parameter]
+    public IconBase? Icon { get; set; }
 
-        /// <summary>
-        /// Callback for button click event.
-        /// </summary>
-        [Parameter]
-        public EventCallback<MouseEventArgs> OnClick { get; set; }
+    /// <summary>
+    /// Child content of the button.
+    /// </summary>
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    /// <summary>
+    /// Callback for button click event.
+    /// </summary>
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    /// <summary>
+    /// Additional attributes to be applied to the button element.
+    /// </summary>
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
 
         /// <summary>
         /// Handles the button click event, preventing default action if the button is disabled or loading.
